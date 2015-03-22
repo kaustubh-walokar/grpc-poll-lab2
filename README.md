@@ -1,6 +1,6 @@
 grpc Poll  server
 ==============================================
-SRC at : https://github.com/kaustubh-walokar/grpc-poll-lab2/tree/master/examples/src/main/java/io/grpc/examples/helloworld
+SRC at : https://github.com/kaustubh-walokar/grpc-poll-lab2/tree/master/examples/src/main/java/edu/sjsu/cmpe273/lab2
 In order to run the poll server simply execute one of the gradle tasks `pollServer`, or `pollClient`.
 
 
