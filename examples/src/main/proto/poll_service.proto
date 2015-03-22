@@ -1,0 +1,22 @@
+syntax = "proto3";
+package grpc.example.routeguide;
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.routeguide";
+option java_outer_classname = "PollProto";
+
+service PollService{
+
+rpc CreatePoll(PollRequest) returns (PollResponse){}
+
+}
+
+message PollRequest{
+    string moderatorId =1;
+string question = 2;
+string startedAt = 3;
+string expiredAt=4;
+repeated string choice = 5;
+}
+message PollResponse {
+    string id=1;
+}
