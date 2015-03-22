@@ -48,14 +48,14 @@ task helloWorldClient(type: JavaExec) {
 }
 
 task pollServer(type: JavaExec) {
-    main = "io.grpc.examples.helloworld.PollServer"
+    main = "edu.sjsu.cmpe273.lab2.PollServer"
     description = "Executes the Poll server."
     classpath = sourceSets.main.runtimeClasspath
 }
 
 
 task pollClient(type: JavaExec) {
-    main = "io.grpc.examples.helloworld.PollClient"
+    main = "edu.sjsu.cmpe273.lab2.PollClient"
     description = "Executes the Poll server."
     classpath = sourceSets.main.runtimeClasspath
 }

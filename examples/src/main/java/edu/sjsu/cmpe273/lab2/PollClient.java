@@ -1,9 +1,9 @@
-package io.grpc.examples.helloworld;
+package edu.sjsu.cmpe273.lab2;
 
 import io.grpc.ChannelImpl;
-import io.grpc.examples.routeguide.PollRequest;
-import io.grpc.examples.routeguide.PollResponse;
-import io.grpc.examples.routeguide.PollServiceGrpc;
+import edu.sjsu.cmpe273.lab2.PollRequest;
+import edu.sjsu.cmpe273.lab2.PollResponse;
+import edu.sjsu.cmpe273.lab2.PollServiceGrpc;
 import io.grpc.transport.netty.NegotiationType;
 import io.grpc.transport.netty.NettyChannelBuilder;
 
@@ -47,7 +47,11 @@ public class PollClient {
                     .build();
 
             PollResponse poll_response = bs.createPoll(a);
+            logger.info("-------------------------------------------------------");
+            logger.info("-----------Client Here---------------------------------");
+            logger.info("-------------------------------------------------------");
             logger.info("Created a new poll with id = " + poll_response.getId());
+            logger.info("-------------------------------------------------------");
             logger.info("sent");
         } catch (RuntimeException e) {
             logger.log(Level.WARNING, "RPC failed", e);

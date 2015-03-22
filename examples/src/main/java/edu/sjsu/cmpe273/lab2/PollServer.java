@@ -1,12 +1,13 @@
-package io.grpc.examples.helloworld;
+package edu.sjsu.cmpe273.lab2;
 
 import io.grpc.ServerImpl;
-import io.grpc.examples.routeguide.PollRequest;
-import io.grpc.examples.routeguide.PollResponse;
-import io.grpc.examples.routeguide.PollServiceGrpc;
+import edu.sjsu.cmpe273.lab2.PollRequest;
+import edu.sjsu.cmpe273.lab2.PollResponse;
+import edu.sjsu.cmpe273.lab2.PollServiceGrpc;
 import io.grpc.stub.StreamObserver;
 import io.grpc.transport.netty.NettyServerBuilder;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
 /**
@@ -51,13 +52,20 @@ public class PollServer {
     }
 
     private static class myPollService implements PollServiceGrpc.PollService {
-
+        final AtomicInteger counter = new AtomicInteger(111111);
         @Override
         public void createPoll(PollRequest request, StreamObserver<PollResponse> responseObserver) {
 
-            PollResponse temp = PollResponse.newBuilder().setId(request.getModeratorId()).build();
+            PollResponse temp = PollResponse.newBuilder()
+                    .setId(request.getModeratorId()+"XYZ")
+                    .build();
+
             responseObserver.onValue(temp);
-            logger.info(request.toString());
+            logger.info("-------------------------------------------------------");
+            logger.info("-----------Server Here---------------------------------");
+            logger.info("-------------------------------------------------------");
+            logger.info("The moderator id recieved = "+request.getModeratorId().toString());
+            logger.info("-------------------------------------------------------");
             responseObserver.onCompleted();
 
         }
